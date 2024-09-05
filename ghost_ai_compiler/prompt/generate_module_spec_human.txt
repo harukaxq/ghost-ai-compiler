@@ -1,0 +1,103 @@
+Pythonモジュールを実装するための中間生成物として、モジュール実装フォーマットに基づいた完璧な**モジュール実装仕様**が必要です。
+
+最初から最後まで指示を良く読み、モジュール入力を元に、モジュール実装フォーマットと前提条件を満たす、完璧なモジュール実装仕様を以下の手順で考えなさい。
+## 入力
+{input}
+
+## 前提条件
+- モジュール入力のfunctionsは外部に公開されるべき、関数です。したがって、public_functionsとは完全に一致します。
+- private_functionsにはモジュール内で使用しないものを定義します。
+- private_functionsは先頭に「_」をつけなさい。
+- 必要に応じてdata_structuresは追加しなさい。
+- 使用している外部サービスでAPIキーが必要な場合にはosモジュールを使用してAPIキーを取得しなさい。
+- 必ず有効なyaml形式で出力しなさい。存在しないことを表したい場合は型に応じてNoneや[]や""を使用しなさい
+- 絶対にモジュール実装フォーマットを守ること。キー名は絶対に変更せず、インデントも正確に合わせること。一番外側のキーはmodule_specとすること。
+- **絶対に**最後まで出力しなさい。```まで出力すること
+- 各説明は詳細に、網羅的に記述しなさい
+- **yamlとして整合性を保つため、不要なインデントに気をつけてください**
+- strには""を使用し、intには数値を使用すること
+- yamlのみ出力する
+
+## モジュール実装フォーマット
+
+```yaml
+module_spec: 
+  name: str # モジュール名 (英数字、アンダースコア)
+  module_description: str # モジュールの可能な限り詳細な説明 (自然言語)
+  public_functions:
+    - function_name: str # 公開関数名 (英数字、アンダースコア)
+      function_description: str # 関数の可能な限り詳細な説明 (自然言語)
+      arguments:
+        - argument_name: str # 引数名 (英数字、アンダースコア)
+          argument_type: str # 引数の型 (例: int, str, list, dict)
+          argument_description: str # 引数の説明 (自然言語)
+      return_type: str # 戻り値の型 (例: int, str, list, dict)
+      return_description: str # 戻り値の説明 (自然言語)
+      preconditions: # 事前条件 (リスト形式)
+        - str # 事前条件 (自然言語)
+      postconditions: # 事後条件 (リスト形式)
+        - str # 事後条件 (自然言語)
+      exceptions:
+        - exception_type: str # 例外の型 (例: ValueError, FileNotFoundError)
+          exception_description: str # 例外が発生する条件の説明 (自然言語)
+      time_complexity: str # 時間計算量 (例: O(n), O(log n))
+      space_complexity: str # 空間計算量 (例: O(n), O(1))
+      constraints: # 制約条件 (リスト形式)
+        - str # 制約条件 (自然言語)
+      examples:
+        - example_input: any # 入力例 (型は問わない)
+          example_output: any # 出力例 (型は問わない)
+          example_description: str # 入出力例の説明 (自然言語)
+      test_cases:
+        - test_input: any # テストケースの入力 (型は問わない)
+          test_output: any # テストケースの期待出力 (型は問わない)
+          test_description: str # テストケースの説明 (自然言語)
+  private_functions:
+    - function_name: str # 非公開関数名 (英数字、アンダースコア)
+      function_description: str # 関数の可能な限り詳細な説明 (自然言語)
+      arguments:
+        - argument_name: str # 引数名 (英数字、アンダースコア)
+          argument_type: str # 引数の型 (例: int, str, list, dict)
+          argument_description: str # 引数の説明 (自然言語)
+      return_type: str # 戻り値の型 (例: int, str, list, dict)
+      return_description: str # 戻り値の説明 (自然言語)
+      preconditions: # 事前条件 (リスト形式)
+        - str # 事前条件 (自然言語)
+      postconditions: # 事後条件 (リスト形式)
+        - str # 事後条件 (自然言語)
+      exceptions:
+        - exception_type: str # 例外の型 (例: ValueError, FileNotFoundError)
+          exception_description: str # 例外が発生する条件の説明 (自然言語)
+      time_complexity: str # 時間計算量 (例: O(n), O(log n))
+      space_complexity: str # 空間計算量 (例: O(n), O(1))
+      constraints: # 制約条件 (リスト形式)
+        - str # 制約条件 (自然言語)
+  data_structures:
+    - data_structure_name: str # データ構造名 (英数字、アンダースコア)
+      data_structure_description: str # データ構造の説明 (自然言語)
+      attributes:
+        - attribute_name: str # 属性名 (英数字、アンダースコア)
+          attribute_type: str # 属性の型 (例: int, str, list, dict)
+          attribute_description: str # 属性の説明 (自然言語)
+      methods:
+        - method_name: str # メソッド名 (英数字、アンダースコア)
+          method_description: str # メソッドの説明 (自然言語)
+          arguments:
+            - argument_name: str # 引数名 (英数字、アンダースコア)
+              argument_type: str # 引数の型 (例: int, str, list, dict)
+              argument_description: str # 引数の説明 (自然言語)
+          return_type: str # 戻り値の型 (例: int, str, list, dict)
+          return_description: str # 戻り値の説明 (自然言語)
+  dependencies:
+    - library_name: str # 依存ライブラリ名
+      library_version: str # 依存ライブラリのバージョン
+  services:
+    - name: str # 連携するサービス名
+      perpose: str # 連携の目的
+      description: str # サービスの説明
+  constants:
+    - constant_name: str # 定数名 (英数字、アンダースコア)
+      constant_type: str # 定数の型 (例: int, str, float)
+      constant_value: any # 定数の値
+      constant_description: str # 定数の説明 (自然言語)
+```

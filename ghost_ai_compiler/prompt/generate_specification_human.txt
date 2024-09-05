@@ -1,0 +1,63 @@
+前提条件、仕様に基づいたアプリケーションを開発したいです。仕様を達成するために、完全に機能する複数のモジュール仕様書を作成してください。
+
+## 前提条件
+- UIが必要な場合は機能を実装するモジュールとUIを実装するモジュールに分ける。
+- UIを実装するモジュール名は`ui`とする。
+- UIを実装する場合はすべての機能をUIで利用できるようにする。
+- UIを実装する場合は基本的にstreamlitを使用する。デスクトップアプリケーションの場合はtkinterを使用する
+- 完璧に機能するようにする
+- セキュリティは考慮しない
+- モジュールは適切なサイズに分割する。
+- モジュールは最低２つに分割
+- 必ず有効なyaml形式で出力しなさい。存在しないことを表したい場合は型に応じてNoneや[]や""を使用しなさい
+- 明示的に指示がない限り、データベースは使用しない
+- 絶対にモジュール仕様書のフォーマットを守ること。キー名は絶対に変更しない、インデントも正確に合わせること。一番外側のキーはproject_name、modulesとすること。
+- descriptionは詳細に網羅的に記述しなさい
+- yamlとして整合性を保つため、不要なインデントはしないでください
+- 出力はyaml形式で出力し、最後の```まで出力すること
+- strには""を使用し、intには数値を使用すること
+
+
+## 仕様
+{input}
+
+
+## モジュール仕様書フォーマット
+
+```yaml
+
+project_name: str # プロジェクト名(英数字、アンダースコア)
+modules:
+  - name: str # モジュール名 (英数字、アンダースコア)
+    description: str # モジュールについての可能な限り詳細な説明(UIモジュールの場合は、どのようなUIパーツをどのように使うのかを詳細に説明)
+    libraries:
+      - name: str # ライブラリ名
+        version: str # バージョン
+        perpose: str # ライブラリの使用目的
+    services:
+      - name: str # 連携する外部サービス名
+        perpose: str # 連携の目的
+        description: str # サービスの説明
+        perpose: str # サービスの使用目的
+
+    module_dependencies:
+      - module_name: str # 依存するモジュール名
+        function_names:
+          - str # 依存する関数名
+        description: str # 依存するモジュールの説明
+    functions:
+      - name: str # 関数名 (英数字、アンダースコア)
+        description: str # 関数についての可能な限り詳細な説明 (自然言語)
+        arguments:
+          - name: str # 引数名 (英数字、アンダースコア)
+            type: str # 引数の型 (例: int, str, list, dict)
+            description: str # 引数の説明を可能な限り詳細に (自然言語)
+        return_type: str # 戻り値の型 (例: int, str, list, dict)
+        return_description: str #  戻り値の説明 (自然言語)
+        preconditions: str # 事前条件 (自然言語)
+        postconditions: str # 事後条件 (自然言語)
+        exceptions:
+          - type: str # 例外の型 (例: ValueError, FileNotFoundError)
+            description: str # 例外が発生する条件の説明 (自然言語)
+
+```
