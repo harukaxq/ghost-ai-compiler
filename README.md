@@ -88,3 +88,9 @@ ghost_ai_compiler/prompt/impl_module_spec_human.txt
     6. 最後に、生成されたプロジェクトのUIをStreamlitで実行するコマンドを出力します。
 3. 例外が発生した場合は、その例外を出力します。
 
+## 作成されたアプリケーションサンプル
+![Hacker News Top Stories App](docs/app1.png)
+[デモ](https://src-snowy-thunder-7195.fly.dev/)
+
+
+![Hacker News Top Stories App](docs/app2.png)
